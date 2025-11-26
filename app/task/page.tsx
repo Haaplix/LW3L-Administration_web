@@ -1,10 +1,10 @@
-import { createTask, getTasks } from "@/lib/tasks"
+import { addArticles, getArticles } from "@/lib/tasks"
 
 export default async function TodoApp() {
-  const tasks = await getTasks()
+  const tasks = await getArticles()
   return (
     <>
-      <form action={createTask}>
+      <form action={addArticles}>
         <label>
           New task: <input name="title" />
         </label>

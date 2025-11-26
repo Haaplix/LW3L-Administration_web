@@ -1,5 +1,7 @@
+"use client"
+
 import Link from "next/link"
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 
 type NavlinkProps = {
     href: string
@@ -14,20 +16,42 @@ function NavLink(props: NavlinkProps){
     )
 }
 
-export default function Navbar(){
-    return(
+export default function Navbar() {
+    const [openDropdown, setOpenDropdown] = useState(false)
+
+    return (
         <nav className="bg-transparent text-indigo-950 py-2">
-            <ul className="  container flex gap-4 justify-center">
+            <ul className="container flex gap-4 justify-center relative">
+
                 <NavLink href="/">Home</NavLink>
-                <NavLink href="/portfolio">Port-Folio</NavLink>
+                {/* 🔽 DROPDOWN MENU */}
+                <li 
+                    className="relative px-4 py-2 rounded-md cursor-pointer hover:bg-slate-600  transition-colors"
+                    onMouseEnter={() => setOpenDropdown(true)}
+                    onMouseLeave={() => setOpenDropdown(false)}
+                >
+                    <span className="hover:text-white">Port-Folio ▼</span>
+
+                    {/* Dropdown Items */}
+                    {openDropdown && (
+                        <ul className="absolute bg-white shadow-lg rounded-md mt-2 left-0 w-40 animate-fade">
+                            <li className="px-4 py-2 hover:bg-gray-200">
+                                <Link href="/Portfolio/Portugal">Portugal</Link>
+                            </li>
+                            <li className="px-4 py-2 hover:bg-gray-200">
+                                <Link href="/Portfolio">Krakow</Link>
+                            </li>
+                            <li className="px-4 py-2 hover:bg-gray-200">
+                                <Link href="/Portfolio">Belgïe</Link>
+                            </li>
+                        </ul>
+                    )}
+                </li>
                 <NavLink href="/MyGear">My Gear</NavLink>
                 <NavLink href="/cv">Contact</NavLink>
-                <NavLink href="/task">task</NavLink>
-                
+                <NavLink href="/task">Task</NavLink>
+
             </ul>
         </nav>
-        
     )
-        
-    
 }
