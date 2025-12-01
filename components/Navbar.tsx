@@ -25,21 +25,22 @@ export default function Navbar() {
 
                 <NavLink href="/">Home</NavLink>
                 {/* 🔽 DROPDOWN MENU */}
-                <li 
+                <li className="relative">
+                <div 
                     className="relative px-4 py-2 rounded-md cursor-pointer hover:bg-slate-600  transition-colors"
                     onMouseEnter={() => setOpenDropdown(true)}
-                    onMouseLeave={() => setOpenDropdown(false)}
-                >
+                    
+                >   
                     <span className="hover:text-white">Port-Folio ▼</span>
-
+                </div>
                     {/* Dropdown Items */}
                     {openDropdown && (
-                        <ul className="absolute bg-white shadow-lg rounded-md mt-2 left-0 w-40 animate-fade">
+                        <ul className="absolute bg-white shadow-lg rounded-md  left-0 w-40 animate-fade">
                             <li className="px-4 py-2 hover:bg-gray-200">
-                                <Link href="/Portfolio/Portugal">Portugal</Link>
+                                <Link href="/Portugal">Portugal</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-200">
-                                <Link href="/Portfolio">Krakow</Link>
+                                <Link href="/portfolio">Krakow</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-200">
                                 <Link href="/Portfolio">Belgïe</Link>
