@@ -1,26 +1,16 @@
-import { uploadPhoto, getPhotos } from "@/lib/uploadPhoto";
+import React from "react";
+import Para from "@/components/Para";
 
 export default async function Portfolio() {
-  const photos = await getPhotos();
-
   return (
     <>
-      <h1 className="font-bold">Here's some pictures I took!</h1>
-
-      <form action={uploadPhoto}>
-        <input type="file" name="file-upload" />
-        <button type="submit">Upload</button>
-      </form>
-
-      <div className="grid grid-cols-2 gap-4 mt-6">
-        {photos.length > 0 ? (
-          photos.map((p, i) => (
-            <img key={i} src={p.url} alt={p.name} className="rounded-lg" />
-          ))
-        ) : (
-          <p>No photos yet.</p>
-        )}
-      </div>
+      <h1 className="text-center font-bold text-5xl">Port-Folio</h1>
+      <h2 className="text-left  text-4xl px-2 py-4">Here's some "previews" IG</h2>
+      <Para
+        title="Portugal"
+        Content="I mean do I really need to explain this one ? It's Portugal, sunny weather, beautiful landscapes, and of course, delicious food. 
+        From the historic streets of Lisbon to the stunning beaches of the Algarve, Portugal offers a rich tapestry of culture and scenery that's perfect for photography enthusiasts like me.(this is defenitly written by chatgpt but shhhhhhh)"
+      ></Para>  
     </>
   );
 }

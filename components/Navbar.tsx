@@ -20,33 +20,35 @@ export default function Navbar() {
     const [openDropdown, setOpenDropdown] = useState(false)
 
     return (
-        <nav className="bg-transparent text-indigo-950 py-2">
+        <nav className="bg-blanc-site text-indigo-950 py-2">
             <ul className="container flex gap-4 justify-center relative">
 
                 <NavLink href="/">Home</NavLink>
                 {/* 🔽 DROPDOWN MENU */}
                 <li className="relative">
-                <div 
-                    className="relative px-4 py-2 rounded-md cursor-pointer hover:bg-slate-600  transition-colors"
+                <div
                     onMouseEnter={() => setOpenDropdown(true)}
+                    onMouseLeave={() => setOpenDropdown(false)}
                     
-                >   
-                    <span className="hover:text-white">Port-Folio ▼</span>
-                </div>
+                >
+                    <div  className="relative px-4 py-2 rounded-md cursor-pointer hover:bg-slate-600  transition-colors">  
+                    <span className="hover:text-white"><Link href="/portfolio">Port-Folio ▼</Link></span>
+                    </div>
                     {/* Dropdown Items */}
                     {openDropdown && (
-                        <ul className="absolute bg-white shadow-lg rounded-md  left-0 w-40 animate-fade">
+                        <ul className="absolute py-2 bg-white shadow-lg rounded-md  left-0 w-40 animate-fade">
                             <li className="px-4 py-2 hover:bg-gray-200">
-                                <Link href="/Portugal">Portugal</Link>
+                                <Link href="/portfolio/Portugal">Portugal</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-200">
-                                <Link href="/portfolio">Krakow</Link>
+                                <Link href="/portfolio/Krakow">Krakow</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-200">
-                                <Link href="/Portfolio">Belgïe</Link>
+                                <Link href="/portfolio/Belgie">Belgïe</Link>
                             </li>
                         </ul>
                     )}
+                </div>
                 </li>
                 <NavLink href="/MyGear">My Gear</NavLink>
                 <NavLink href="/cv">Contact</NavLink>
