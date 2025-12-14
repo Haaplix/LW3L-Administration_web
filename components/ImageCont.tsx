@@ -9,7 +9,11 @@ type ImageContProps = {
 
 export default function ImageCont(props: ImageContProps){
     return (
-        <img className="object-contain md:object-cover" src={props.source} />
+        <img className="object-contain md:object-cover " 
+            width={500}
+            height={600}
+            src={props.source}
+        />
     )
 
 }

@@ -9,10 +9,14 @@ import { redirect } from 'next/navigation'
 export async function register(form: FormData) {
   const login = String(form.get('email'))
   const password = String(form.get('password'))
+  const Last_Name = String(form.get('Last_Name'))
+  const First_Name = String(form.get('First_Name'))
+  const User_Name = String(form.get('User_Name'))
+  console.log("Registering user:", { login, Last_Name, First_Name, User_Name })
   await db.insert(usersTable).values({
     email: login, // short for login: login
     password: await hash(password, 10),
-    Name: String(form.get('Name')),
+    Last_Name: String(form.get('Last_Name')),
     First_Name: String(form.get('First_Name')),
     User_Name: String(form.get('User_Name')),
   })
@@ -21,10 +25,10 @@ export async function register(form: FormData) {
 
 export async function login(form: FormData) {
     console.log("login function called")
-    const login = String(form.get('email'))
+    const login = String(form.get('User'))
     const password = String(form.get('password'))
     const users = await db.select().from(usersTable)
-    .where(eq(usersTable.email, login))
+    .where(eq(usersTable.User_Name, login))
     console.log(users.length)
     console.log(compare(password, users[0].password))
     const loggedIn = users.length > 0
