@@ -43,5 +43,9 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: postgres://root:hello@db:5432/mydb
+      SECRET: your_secret_key_here
     volumes:
-      - /app/node_modules
+      - node_modules:/app/node_modules
+volumes:
+  db_data:
+  node_modules:

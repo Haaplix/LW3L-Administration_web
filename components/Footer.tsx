@@ -19,10 +19,10 @@ function FootLinks(props: FootLinksProps) {
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-2 py-2 w-full z-50 min-h-20">
+    <footer className="bg-slate-600 text-white px-2 py-2 w-full z-50 min-h-20">
       <ul className="container mx-auto flex justify-between">
         <div className="flex gap-7">
-          <FootLinks href="">
+          <FootLinks href="https://www.instagram.com/adam_ali.jpeg/?igsh=YWRvcnBzZjJrNG16&utm_source=qr#">
             <Image
               src="/instagram.svg"
               alt="Instagram Logo"

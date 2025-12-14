@@ -54,6 +54,10 @@ export default function Navbar() {
                 <NavLink href="/cv">Contact</NavLink>
                 <NavLink href="/task">Task</NavLink>
 
+                <div className="right-1 absolute">
+                    <NavLink href="/Login">Login</NavLink>
+                </div>
+
             </ul>
         </nav>
     )

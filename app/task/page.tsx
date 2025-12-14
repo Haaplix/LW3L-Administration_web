@@ -6,7 +6,7 @@ export default async function TodoApp() {
     <>
       <form action={addArticles}>
         <label>
-          New task: <input name="title" />
+          Opinion: <input name="Opinion" />
         </label>
         <button>Submit</button>
       </form>
