@@ -13,7 +13,6 @@ export default function Cv(){
 
             </CvEntry>
 
-            <ImageCont source="IMG_0005.jpg">joHFFJHZ</ImageCont>
         </>
     )
 

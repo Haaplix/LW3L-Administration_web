@@ -16,9 +16,9 @@ export async function register(form: FormData) {
   await db.insert(usersTable).values({
     email: login, // short for login: login
     password: await hash(password, 10),
-    Last_Name: String(form.get('Last_Name')),
-    First_Name: String(form.get('First_Name')),
-    User_Name: String(form.get('User_Name')),
+    Last_Name: Last_Name,
+    First_Name: First_Name,
+    User_Name: User_Name,
   })
   console.log("reg function called")
 }
