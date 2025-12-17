@@ -52,7 +52,7 @@ export default function Navbar() {
                 </li>
                 <NavLink href="/MyGear">My Gear</NavLink>
                 <NavLink href="/cv">Contact</NavLink>
-                <NavLink href="/task">Task</NavLink>
+                <NavLink href="/Opinion">Opinion</NavLink>
 
                 <div className="right-1 absolute">
                     <NavLink href="/Login">Login</NavLink>

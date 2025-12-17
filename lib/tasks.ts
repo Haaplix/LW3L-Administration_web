@@ -1,35 +1,40 @@
 'use server'
 
 import { db } from '@/db'
-import { blogTable } from '@/db/schema'
+import { OpinionTable } from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-export async function getArticles() {
-  return await db.select().from(blogTable)
+export async function getOpinion() {
+  return await db.select().from(OpinionTable)
 }
 
-export async function addArticles(form: FormData) {
-  await db.insert(blogTable).values({
-    title: String(form.get('title')),
+export async function addOpinion(form: FormData) {
+  await db.insert(OpinionTable).values({
+    title: String(form.get('Title')),
+    opinion: String(form.get('opinion')),
     done: false,
   })
   redirect((await headers()).get('referer') ?? '/')
 }
 
-export async function editTask(form: FormData) {
+export async function editOpinion(form: FormData) {
   await db
-    .update(blogTable)
+    .update(OpinionTable)
     .set({
       title: String(form.get('title')),
+      opinion: String(form.get('opinion')),
       done: form.get('done') === 'on',
     })
-    .where(eq(blogTable.id, String(form.get('id'))))
+    .where(eq(OpinionTable.id, String(form.get('id'))))
   redirect((await headers()).get('referer') ?? '/')
 }
 
-export async function removeTask(id: string) {
-  await db.delete(blogTable).where(eq(blogTable.id, id))
+export async function removeOpinion(FormData: FormData) {
+  const id = FormData.get("id") as string;
+  if (!id) throw new Error("Missing id");
+
+  await db.delete(OpinionTable).where(eq(OpinionTable.id, id))
   redirect((await headers()).get('referer') ?? '/')
 }

@@ -2,18 +2,14 @@ import { boolean, pgTable, text, uuid } from 'drizzle-orm/pg-core'
 import { title } from 'process'
 import { use } from 'react'
 
-export const blogTable = pgTable('tasks', {
+export const OpinionTable = pgTable('opinion', {
   id: uuid().defaultRandom().primaryKey(),
   title: text().notNull(),
+  opinion: text().notNull(),
   done: boolean().default(false).notNull(),
 })
 
-export const OpinionTable = pgTable('opinions', {
-  id: uuid().defaultRandom().primaryKey(),
-  username: text().notNull(),
-  title: text().notNull(),
-  content: text().notNull(),
-})
+
 
 
 
