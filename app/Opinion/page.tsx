@@ -20,7 +20,7 @@ export default async function TodoApp() {
 				<label className="mb-1">Opinion</label>
 					<textarea
 					name="opinion"
-					className="border h-9 md:w-200 rounded-xs"
+					className="border h-9 xl:w-200 w-50 md:w-100 rounded-xs"
 					/>
 			</div>
 
